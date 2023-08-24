@@ -1,0 +1,26 @@
+<odoo>
+  <data>
+
+    <!-- Top menu item -->
+    <menuitem
+            name="2F Authentication"
+            id="its_2f_authentication.menu_root"
+    />
+
+    <!-- menu categories -->
+    <menuitem
+            name="User keys"
+            id="its_2f_authentication.menu_1"
+            parent="its_2f_authentication.menu_root"
+    />
+
+    <!-- actions -->
+    <menuitem
+            name="Key"
+            id="its_2f_authentication.menu_1_list"
+            parent="its_2f_authentication.menu_1"
+              action="its_2f_authentication.action_window"
+    />
+
+  </data>
+</odoo>

@@ -1,0 +1,43 @@
+<odoo>
+  <data>
+            <!-- explicit list view definition -->
+      <record id="view_users_form_forum" model="ir.ui.view">
+        <field name="name">res.users.form.forum</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="/form/header" position="inside">
+                <button name="generate_user_public_and_private_keys" type="object" class="oe_highlight" string="Generate user keys"/>
+                <button name="unique_number_generate" type="object" class="oe_highlight" string="Generate a user private pin" attrs="{'invisible': [('user_mobile_code_pin', '!=', False)]}"/>/>
+                <button name="send_private_key_to_mobile_user" type="object" class="oe_highlight" string="Share keys" />
+            </xpath>
+            <xpath expr="/form/sheet/notebook/page[2]" position="after">
+                <page  string="Keys">
+                    <group>
+                        <field name="its_identity_ids" nolabel="1" />
+                    </group>
+                </page>
+            </xpath>
+            <xpath expr="/form/sheet/notebook/page[2]/group/group[2]" position="inside">
+                <field name="user_mobile_code_pin"/>
+            </xpath>
+            <xpath expr="/form/sheet/notebook/page[3]" position="after">
+                <page  string="Allow double authentication?">
+                    <group>
+                        <field name="activate"/>
+                    </group>
+                </page>
+             </xpath>
+        </field>
+    </record>
+
+       <template id="custom_login" name="Custom Login">
+        <t t-call="auth_signup.login">
+            <div class="form-group">
+                <label class="control-label" for="custom_field">Custom Field</label>
+                <input type="text" name="custom_field" class="form-control" t-att-value="request.params.custom_field"/>
+            </div>
+        </t>
+    </template>
+  </data>
+</odoo>

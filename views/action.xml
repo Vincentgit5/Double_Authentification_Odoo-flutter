@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+     <record model="ir.actions.act_window" id="its_2f_authentication.action_window">
+            <field name="name">User key</field>
+            <field name="res_model">its.its_2f_authentication</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('its_2f_authentication.its_2f_authentication_list')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('its_2f_authentication.its_2f_authentication_form')})]"/>
+        </record>
+</odoo>
